@@ -1,0 +1,14 @@
+/**
+ *   This is the first sample program in Core Java Chapter 3
+ *   @version 1.01 2020-07-13
+ *   @author xiaoma
+ */
+
+/* 三种注释方式，各有各特色*/
+
+public class FirstSample{
+	public static void main(String[] args){
+		// 输出一句话
+		System.out.println("We will not use 'Hello, World!'");
+	}
+}
