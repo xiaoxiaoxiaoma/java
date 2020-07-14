@@ -1,0 +1,56 @@
+Variable-变量
+
+声明变量时，变量名称可以使用字母及数字组成，其中需以字母开头
+	'A'-'Z', 'a'-'z', '_', '$'(最好不要用，通常Java编译时会出现含该符号的变量名)
+	'0'-'9'
+
+1.变量名不可使用Java保留字
+2.变量名大小写敏感
+
+
+初始化变量：
+	int vacationDays;
+	vacationDays = 12;
+
+基础数据类型声明变量：
+--int,long,short,byte
+--double,float
+--char
+--boolean
+
+--使用小技巧：应该在变量第一次使用前声明变量，应给变量初始化一个值
+
+
+
+
+常量：
+
+public class Constants{  //多个词时“驼峰”写法
+	public static void main(String[] args){
+		final double CM_PER_INCH = 2.54;
+		double paperWidth = 8.5;
+		double paperHeight = 11;
+		System.out.println("Paper size in centimeters:"
+			+ paperWidth * CM_PER_INCH + "by" + paperHeight * CM_PER_INCH);
+	}
+}
+
+--常量一经赋值后就不能再发生改变，命名时应用大写字母
+
+
+
+
+public class Constants2{  //多个词时“驼峰”写法
+
+	public static final double CM_PER_INCH = 2.54;
+
+	public static void main(String[] args){
+		double paperWidth = 8.5;
+		double paperHeight = 11;
+		System.out.println("Paper size in centimeters:"
+			+ paperWidth * CM_PER_INCH + "by" + paperHeight * CM_PER_INCH);
+	}
+}
+
+1.Constants2类内其他方法可以使用"CM_PER_INCH"变量
+2.其他类的方法可以使用"CM_PER_INCH",如上所示例子,其他类的方法可调用Constants2.CM_PER_INCH.
