@@ -1,0 +1,121 @@
+Operators
+
++	addition
+-	subtraction
+*	multiplication
+/	division
+
+For example:
+15 / 2 = 7
+15 % 2 = 1
+15.0 / 2 = 7.5
+x += 4; // x = x + 4;
+
+-整数除以零抛出异常
+-小数除以零为无穷大或不存在的值(infinite or NaN result)
+
+
+
+
+3.5.1 Increment and Decrement Operators
+
+int m = 7;
+int n = 7;
+int a = 2 * ++m; // now a is 16, m is 8
+int b = 2 * --m; // now b is 14, n is 8
+
+
+
+
+3.5.2 Relational and boolean Operators
+
+==	equality
+!=	inequality
+<	less than
+>	greater than
+<=	less than or equal
+>=	greater than or equal
+&&	logical "and"  expression1 && expression2  如果expression1为false，不会再做expression2的判断
+||	logical "or"   expression1 || expression2  如果expression1为true，不会再做expression2的判断
+?:	condition ? expression1 : expression2  example, x < y ? x : y; give the smaller of x and y
+
+
+
+
+3.5.3 Bitwise Oprators
+
+&	and
+|	or
+^	xor
+~	not
+>>	shift a bit pattern to the right
+<<	shift a bit pattern to the left
+>>>	fills the top bits with zero
+
+Note:There is no <<< operator
+
+
+
+
+3.5.4 Mathematical Functions and Constants
+
+Math.sqrt(int a)  a开平方根
+Math.pow(x,a)	x的a次方
+
+Math.sin
+Math.cos
+Math.tan
+Math.atan
+Math.atan2
+Math.exp
+Math.log
+Math.log10
+Math.PI
+Math.E
+
+
+
+
+3.5.5 Conversions between Numeric Types
+
+byte -> short -> int -> long   
+char -> int
+int -> float  (lose some precision) 
+float -> double
+int -> double  (lose some precision)
+long -> double (lose some precision)
+long -> float (lose some precision)
+
+int n = 123456789;
+float f = n; // f is 1.23456792E8
+When two values are combined with a binary operator (such as n + f where n is an integer and f is a floating-point value), both operands are converted to a common type before the operation is carried out.
+//自动转换
+1. If either of the operands is of type double, the other one will be converted to a double.
+2. Otherwise, if either of the operands is of type float, the other one will be converted to a float.
+3. Otherwise, if either of the operands is of type long, the other one will be converted to a long.
+4. Otherwise, both operands will be converted to an int.
+
+
+
+
+3.5.6 Casts(强制转换)
+
+double x = 9.997;
+int nx = (int) x;
+Now, the variable nx has the value 9 because casting a floating-point value to an integer discards the fractional part.
+
+
+
+
+3.5.7 Parentheses and Operator Hierarchy  //括号与运算符的优先级
+
+
+
+
+3.5.8 Enumerated Types //枚举类型
+
+enum Size {SMALL, MEDIUM, LARGE, EXTRA_LARGE};
+Size s = Size.MEDIUM;
+
+
+
