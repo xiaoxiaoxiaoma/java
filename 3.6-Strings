@@ -1,0 +1,68 @@
+
+字符串 —— String
+
+3.6.1 Substrings
+
+String greeting = "Hello";
+String s = greeting.substring(0,3);
+
+create a string consisting of the characters "Hel".
+
+
+
+
+
+3.6.2 Concatenation  --通过“+”连接String与其他变量
+
+
+
+
+3.6.3 Strings Are Immutable  --string类型不可变换
+
+StringBuilder buff = new StringBuilder();
+buff.append(123);
+buff.append(1.23);
+buff.append('a');
+buff.append('\u03e2');
+buff.append('\n');
+buff.append("Hello");
+
+String str = buff.toString();
+
+
+
+
+3.6.4 Testing Strings for Equality
+
+String greeting = "Hello";
+greeting.equals("Hello");  //true  检查两个字符串的内容是否相同
+greeting.equalsIgnoreCase("hello"); //忽略大小写，检查两个字符串的内容是否相同
+
+if(greeting == "Hello") ...   //检查两个字符串的内存地址是否相同
+
+
+
+
+
+3.6.5 Empty and Null Strings
+
+if(str.length() == 0) or if(str.equals(""))  //判断str字符串是否为空
+
+if(str == null)  //判断str字符串是否为Null
+
+if(str != null && str.length() != 0)  //检查字符串是否为Null。若不是Null，是否为空
+
+
+
+
+3.6.6 Code Points and Code Units  //字符串的内容构成(普通字符'a','A'与汉字)及其存储方式
+
+
+
+
+3.6.7 The String API
+
+
+
+
+3.6.8 Reading the Online API Documentation
