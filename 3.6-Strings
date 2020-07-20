@@ -46,7 +46,7 @@ if(greeting == "Hello") ...   //检查两个字符串的内存地址是否相同
 
 3.6.5 Empty and Null Strings
 
-if(str.length() == 0) or if(str.equals(""))  //判断str字符串是否为空
+if(str.length() == 0) or if("".equals(str))  //判断str字符串是否为空
 
 if(str == null)  //判断str字符串是否为Null
 
