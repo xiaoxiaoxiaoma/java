@@ -19,7 +19,7 @@ double	8 bytes
 java 默认小数使用double类型，若想使用float类型，需要suffix F 例：3.14F
 定义那种数据类型，具体看实际需求
 
-System.out.println(2.0-1.0);  prints 0.899999999, not 0.9 as you would expect
+System.out.println(2.0-1.1);  prints 0.899999999, not 0.9 as you would expect
 Because the floating-point numbers are represented in the binary number system.
 There is no precise binary representation of the fraction 1/10
 
