@@ -1,0 +1,81 @@
+3.7 Input and Output
+
+3.7.1 Reading Input
+
+import java.util.Scanner;
+
+/**
+ * This program demonstrates console input.
+ * @version 1.10 2004-02-10
+ * @author xiaoma
+ */
+
+public class InputTest{
+
+	public static void main(String[] args){
+	
+		Scanner in = new Scanner(System.in);
+
+		//get first input
+		System.out.print("What is your name?");
+		String name = in.nextLine();
+
+		//get second input
+		System.out.print("How old are you?");
+		int age = in.nextInt();
+
+		//display output on console
+		System.out.println("Hello, "+ name + ". Next year, you'll be "+ (age+1));
+	}
+
+
+}
+
+Console cons = System.console();
+String username = cons.readLine("User name: ");
+char[] passwd = cons.readPassword("Password: ");
+
+Scanner(InputStream in)	//constructs a Scanner object from the given input stream
+String	next()		//reads the next word of input
+String	nextLine()	//reads the next line of input
+int	nextInt()	//reads and converts the next character swquence that represents an integer number
+double	nextDouble()
+boolean	hasNext()	//tests whether there is another word in the input
+boolean	hasNextInt()
+boolean hasNextDouble()
+
+
+
+
+
+3.7.2 Formatting Output
+
+double x = 1000000.0 / 3.0;
+System.out.printf("%8.2f",x);	prints 3333.33	//prints x with a field width of 8 characters and a precision of 2 characters.
+
+System.out.printf("Hello, %s. Next year, you'll be %d", name, age);	//f is a floating-point number, s a string and d a decimal integer.
+
+System.out.printf("%,.2f", 100000.0 / 3.0);	//增加特殊符号分割数字
+
+static String format(String str);
+String message = String.format("Hello, %s. Next year, you'll be %d", name, age);
+
+System.out.printf("%tc", new Date());	//日期时间的格式化输出
+
+
+
+
+
+3.7.3 File Input and Output
+
+Scanner in = new Scanner(Paths.get("myfile.txt"));	// To read from a file,"C:\\mydirectory\\myfile.txt"
+PrintWriter out = new PrintWriter("myfile.txt");	//To write to a file
+
+String dir = System.getProperty("user.dir");
+
+Scanner(Path p)		//constructs a Scanner that reads data from the given path
+Scanner(String data)	//constructs a Scanner that reads data from the given string
+PrintWriter(String fileName)	//constructs a PrintWriter that writes data to the file wiht the given file name
+
+
+
