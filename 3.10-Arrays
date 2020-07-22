@@ -1,0 +1,108 @@
+3.10 Arrays
+
+define the array
+1. int[] a;
+2. int a[];
+3.int[] a = new int[100];
+
+
+3.10.1 The "for each" Loop
+
+int[] a = new int[100];
+for(int i : a){
+	System.out.println(i);
+}
+
+import java.util.Arrays;
+System.out.println(Arrays.toString(a));
+
+
+
+
+
+3.10.2 Array Initializers and Anonymous Arrays
+
+int[] smallPrimes = {2, 3, 5, 7, 11, 13 };
+int[] smallPrimes = new int[]{ 2, 3, 5, 7, 11, 13};
+
+
+
+
+3.10.3 Array Copying
+
+int[] luckyNumbers = smallPrimes;
+luckyNumbers[5] = 12;  // now smallprimes[5] is also 12
+
+/*
+ *当长度大于原来的数组时，若数组类型为数字则多余的项填充0，若数组类型为boolean则多余的项填充false
+ *当长度小于原来的数组时，仅copy初始化的数组项
+ */
+
+int[] copiedLuckNumbers = Arrays.copyOf( luckyNumbers, luckyNumbers.length);
+
+
+
+
+
+3.10.4 Command-Line Parameters
+
+public class Message{
+	public static void main(String[] args){
+		
+	}
+}
+
+java Message -g cruel world
+args[0]: "-g"
+args[1]: "cruel"
+args[2]: "world"
+
+
+
+
+
+3.10.5 Array Sorting
+
+int[] a = new int[10000];
+...
+Arrays.sort(a);  // QuickSort algorithm
+
+
+static String toString(type[] a)
+static type[] copyOf(type[] a, int length)
+statci type[] copyOf(type[] a, int start, int end)
+static void sort(type[] a)
+static int binarySearch(type[] a, type v)
+static int binarySearch(type[] a, int start, int end, type v)
+static void fill(type[] a, type v)  //sets all elements of the array to v
+static boolean equals(type[] a, type[] b)
+
+
+
+
+
+3.10.6 Multidimensional Arrays
+
+double[][] balances;
+balances = new double[nyears][nrates];
+int[][] magicSquare = { {16, 3, 2, 13}, {5, 10, 11, 8}, {9, 6, 7, 12}, {4, 15, 14, 1} };
+
+for(int i = 0; i < balances[0].length; i++){
+	for(int j = 0; j < balances[i].length; j++){
+		System.out.print(balances[i][j]+" ");
+	}
+	System.out.println();
+}
+
+for(double[] row : a)
+	for(double value : row)
+		System.out.print(value+" ");
+
+
+
+
+
+3.10.7 Ragged Arrays
+Java has no multidimensional arrays at all, only one-dimensional arrays. Multidimensional arrays are faked as "arrays of arrays."
+
+
