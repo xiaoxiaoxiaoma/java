@@ -78,7 +78,7 @@ boolean	equalsIgnoreCase(String other)
 int	indexOf(String str)
 int	indexOf(String str, int fromIndex)
 int	indexOf(int char)
-int	indexOf(int char, int from Index)
+int	indexOf(int char, int fromIndex)
 
 int	lastIndexOf(String str)
 int	lastIndexOf(String str, int fromIndex)
