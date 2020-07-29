@@ -1,0 +1,133 @@
+4.6 Object Construction
+
+4.6.1 Overloading
+
+Overloading occurs if several methods have the same name but different parameters.
+
+Note: the return type is not part of the method signature.
+That is, you cannot have two methods with the same names and parameter types but different return types.
+
+
+
+
+
+4.6.2 Default Field Initialization
+
+If you don't set a field explicitly in a constructor, it is automatically set to a default value:
+numbers to 0, boolean values to false, and object references to null.
+
+class Student{
+
+	......
+	private String name;
+	private int age;
+	private boolean flag;
+	......
+}
+
+
+
+
+
+4.6.3 The Constructor with No Arguments
+
+Please keep in mind that you get a free no-argument constructor only when your class has no other constructors.
+If you write your class with even a single constructor of your own 
+and you want the users of your class to have the ability to create an instance by a class to New ClassName()
+then you must provide a no-argument constructor.
+
+
+
+
+
+4.6.4 Explicit Field Initialization
+
+class Employee{
+	private String name ="";
+}
+
+This assignment is carried out before the constructor executes.
+
+
+
+
+
+4.6.5 Parameter Names
+
+public Employee(String name, double salary){
+	this.name = name;
+	this.salary = salary;
+}
+
+
+
+
+
+4.6.6 Calling Another Constructor
+
+public Employee(double s){
+	//calls Employee(String, double)
+	this("Employee #"+ nextId, s);
+	nextId++;
+}
+//不能互相调用导致死循环
+
+
+
+
+
+4.6.7 Initialization Blocks
+
+You have already seen two ways to initialize a data field:
+· By setting a value in a constructor
+· By assigning a value in the declaration
+
+class Employee{
+	
+	private static int nextId;
+	private int id;
+	private String name;
+	private double salary;
+	
+	// object initialization block 
+	{
+		id = nextId;
+		nextId++; 
+	}
+	
+	public Employee(String n, double s){
+		name = n;
+		salary = s;
+	}
+
+	public Employee(){
+		name = "";
+		salary = 0;
+	}
+	. . .
+}
+
+In this example, the id field is initialized in the object initialization block, no matter
+which constructor is used to construct an object. The initialization block runs first, and
+then the body of the constructor is executed. 
+
+To initialize a static field, either supply an initial value or use a static initialization
+block. You have already seen the first mechanism:
+	private static int nextId = 1;
+
+	// static initialization block static
+{
+	Random generator = new Random();
+	nextId = generator.nextInt(10000); 
+}
+
+Static initialization occurs when the class is first loaded
+
+
+
+
+
+4.6.8 Object Destrution and the finalize Method
+
+Since Java does automatic garbage collection, manual memory reclamation is not needed, so Java does not support destructors.
+

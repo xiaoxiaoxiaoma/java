@@ -1,0 +1,57 @@
+4.4 Static Fields and Methods
+
+4.4.1 Static Fields
+
+class Employee{
+
+	private static int nextId = 1;
+	
+	private int id;
+	...
+}
+// there is only one nextId field that is shared among all instances of the class
+
+int i = Employee.nextId;
+
+
+
+
+
+4.4.2 Static Constants
+
+public class Math{
+
+	public static final double PI = 3.141592;
+} 
+
+//You can access this constant in your programs as Math.PI.
+
+
+
+
+
+
+4.4.3 Static Methods
+
+Math.pow(x,a)   // x ** a (python)
+
+Note: recommend that you use class names, not objects, to invoke static methods
+
+Use static methods in two situations:
+· When a method doesn't need to access the object state because all nedded parameters are supplied as explicit parameters(example:Math.pow)
+· When a method only needs to access static fields of the class(example:Employee.getNextId)
+
+
+
+
+
+4.4.4 Factory Methods
+
+
+
+
+
+4.4.5 The main Method
+
+Note that the Employee class also has a static method for unit testing, simply execute
+	java Employee
