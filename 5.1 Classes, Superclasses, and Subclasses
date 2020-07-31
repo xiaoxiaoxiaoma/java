@@ -1,0 +1,246 @@
+5.1 Classes, Superclasses, and Subclasses
+
+class Manager extends Employee{
+	
+	added methods and fields
+}
+
+Manager is subclass, and Employee is superclass
+
+----------------------------**************---------------------------
+package inheritance;
+
+/**
+* This program demonstrates inheritance.
+* @version 1.21 2004-02-21
+* @author Cay Horstmann
+*/
+public class ManagerTest{
+
+	 public static void main(String[] args){
+
+	 // construct a Manager object
+	 Manager boss = new Manager("Carl Cracker", 80000, 1987, 12,);
+	
+	 boss.setBonus(5000);
+
+	 Employee[] staff = new Employee[3];
+
+	 // fill the staff array with Manager and Employee objects
+	 staff[0] = boss;
+	 staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+	 staff[2] = new Employee("Tommy Tester", 40000, 1990, 3, 15);
+
+ 	// print out information about all Employee objects
+	 for (Employee e : staff)
+		 System.out.println("name=" + e.getName() + ",salary=" + e.getSalary());
+	}
+}
+
+
+--------------------------*******************---------------------------
+package inheritance;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class Employee{
+
+	private String name;
+	private double salary;
+	private Date hireDay;
+
+	public Employee(String n, double s, int year, int month, int day){
+		
+		name = n;
+ 		salary = s;
+ 		GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+		hireDay = calendar.getTime();
+	}
+
+ 	public String getName(){
+
+		return name;
+	}
+ 
+	public double getSalary(){
+		
+		 return salary;
+	}
+
+	public Date getHireDay(){
+
+		 return hireDay;
+	}
+
+	public void raiseSalary(double byPercent){
+
+		 double raise = salary * byPercent / 100;
+		 salary += raise;
+	}
+}
+
+
+---------------------------**************-----------------------------------
+
+package inheritance;
+
+public class Manager extends Employee{
+
+	pravate double bonus;
+	
+	public Manager(String n, double s, int year, int month, int day){
+		 super(n, s, year, month, day);
+		 bonus = 0;
+	}
+
+	public double getSalary(){
+		double baseSalary = super.getSalary();
+		return baseSalary + bonus;
+	}
+
+	public void setBonus(double b){
+		bonus = b;
+	}
+}
+
+----------------------------****************------------------------------------
+/*
+*	若不显式使用super调用父类的构造方法，则自动调用父类的缺省构造方法
+*	若父类有多个构造方法，而没有缺省构造方法，子类不显式调用构造方法时，编译报错
+*	调用父类构造方法时，需把语句放在构造方法的前面
+*/
+
+
+5.1.1 Inheritance Hierarchies
+
+// 继承层次体系
+
+
+
+
+
+5.1.2 PolyMorphism
+
+//子类可以通过继承直接使用父类的方法，若父类想要使用子类的方法，可以通过以下方式
+
+Employee e;
+e = new Employee();
+e = new Manager();
+
+Manager ma = new Employee(); // Error
+
+
+
+
+
+5.1.3 Dynamic Binding
+
+the compiler or virtual machine can find the right method of object to execute
+
+
+
+
+
+5.1.4 Preventing Inheritance: Final Classes and Methods
+
+you want to prevent someone from forming a subclass from one of
+your classes. Classes that cannot be extended are called final classes, and you use
+the final modifier in the definition of the class to indicate this.
+
+final class Executive extends Manager{
+	.......
+}
+
+You can also make a specific method in a class final. If you do this, then no
+subclass can override that method. (All methods in a final class are automatically
+final.)
+
+class Employee{
+	......
+	public final String getName(){
+		return name;
+	}
+	......
+}
+
+Note:if a class is declared final, only the methods, not the fields, are automatically final
+
+
+
+
+
+5.1.5 Casting
+
+//显式强制转换
+
+Manager boos = (Manager) staff[0];
+
+if(staff[1] instanceof Manager){
+	boos = (Manager) staff[1];
+	......
+}
+
+
+
+
+
+5.1.6 Abstract Classes
+
+abstract class Person{
+	......
+	public abstract String getDescription();
+}
+
+-----------------------------------*****************************---------------------------------
+
+abstract class Person{
+	
+	private String name;
+
+	public Person(String n){
+		name = n;
+	}
+
+	public abstract String getDescription();
+
+	public String getName(){
+		return name;
+	}
+}
+
+
+//当你继承了抽象类，你有两种实现方法
+1.不是实现所有的抽象方法，把该类改成抽象类
+2.实现所有的抽象方法，把该类实现为现实的子类
+
+new Person("Vince Vu")   //Error
+
+Person p = new Student("Vince Vu", "Economics");
+//Keep in mind that the variable p never
+refers to a Person object because it is impossible to construct an object of the
+abstract Person class
+
+
+class Student extends Person{
+	private String major;
+	public Student(String n, String m){
+		super(n);
+		major = m;
+	}
+	public String getDescription(){
+		return "a student majoring in " + major;
+	}
+}
+
+
+
+
+
+5.1.7 Protected Access
+
+Here is a summary of the four access modifiers in Java that control visibility:
+1. Visible to the class only (private).
+2. Visible to the world (public).
+3. Visible to the package and all subclasses (protected).
+4. Visible to the package—the (unfortunate) default. No modifiers are needed
