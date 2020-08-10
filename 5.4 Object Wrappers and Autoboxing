@@ -1,0 +1,30 @@
+5.4 Object Wrappers and Autoboxing
+
+ArrayList<Integer> list = new ArrayList<>();
+
+	list.add(3)
+is automatically translated to
+	list.add(Integer.valueOf(3));
+
+This conversion is called autoboxing
+
+Automatic boxing and unboxing even works with arithmetic expressions. For example, you can apply the increment operator to a wrapper reference
+
+Integer n = 3;
+n++;
+
+
+java.lang.Integer
+
+int intValue()			//returns the value of this Integer object as an int
+static String toString(int i)	//returns a new String Object representing the number i in base 10
+static String toString(int i,int radix)
+static int parseInt(String s)
+static int parseInt(String s, int radix) //returns the integer whose digits are contained in the string,radix进制
+
+static Integer valueOf(String s)
+static Integer valueOf(String s, int radix) //returns a new Integer object initialized to the integer whos digits are contained in the string s.
+
+java.text.NumberFormat
+Number parse(String s)	//returns the numeric value, assuming the specified String represents a number
+
