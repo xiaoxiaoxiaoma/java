@@ -1,0 +1,45 @@
+5.3 Generic Array Lists
+
+import java.util.ArrayList;
+
+ArrayList<Employee> staff = new ArrayList<Employee>();
+
+ArrayList<Employee> staff = new ArrayList<>();
+
+staff.add(new Employee("Harry",......));
+
+staff.size()   //returns tha actual number of elements in the array list
+
+java.util.ArrayList<T>
+
+ArrayList<T>()		//constructs an empty array list
+ArrayList<T>(int initialCapacity)	//constructs an empty array list with the specified capacity
+
+boolean add(T obj)	//appends an elements at the end of the array list. Always returns true
+int size()		//returns the number of elements currently stored in the array list
+void ensureCapacity(int capacity)	//ensures that the array list has the capacity to store the given number of elements without reallocating its internal storage array
+void trimToSize()	//reduces the storage capacity of the array list to its current size
+
+
+
+
+
+5.3.1 Accessing Array List Elements
+
+staff.set(i, harry);	//equivalent to a[i] = harry; Do not call list.set(i,x) until the size of the array list is larger than i
+Employee e = staff.get(i);	//To get an array list element
+Employee e = staff.remove(n);	//remove an element from the middle of an array list
+
+• You don’t have to specify the array size.
+• You use add to add as many elements as you like.
+• You use size() instead of length to count the number of elements.
+• You use a.get(i) instead of a[i] to access an element.
+
+
+
+
+
+5.3.2 Compatibility between Typed and Raw Array Lists
+
+In your own code, you will always want to use type parameters for added safety. In this section, you
+will see how to interoperate with legacy code that does not use type parameters.
